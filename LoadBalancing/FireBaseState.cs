@@ -1,6 +1,6 @@
 ﻿public class FireBaseState : State
 {    
-    public static bool IsActive;
+    private static bool IsActive;
     public override void SendNotification(string message)
     {
         Console.WriteLine(message);
@@ -15,10 +15,11 @@
     {
         IsActive = false;
     }
+    public static bool Status() => IsActive;
 
     public override void StateChangeCheck(NotificationService notificationService)
     {
-        if (ParseState.IsActive)
+        if (ParseState.Status())
             notificationService.State = new ParseState();
     }
 }

@@ -3,8 +3,8 @@
     State state;
     static NotificationService() 
     {
-        FireBaseState.IsActive = true;
-        ParseState.IsActive = true;
+        FireBaseState.Start();
+        ParseState.Start();
     }
 
     public NotificationService() => this.State = new ParseState();
